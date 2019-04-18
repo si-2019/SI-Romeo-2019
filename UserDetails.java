@@ -13,4 +13,8 @@ public class UserDetails{
     private long id;
     private String username;
     private String password;
+
+    public long getID() {
+        return id;
+    }
 }
