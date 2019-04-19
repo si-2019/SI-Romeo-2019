@@ -30,4 +30,9 @@ public class JWTAuthorizationFilter extends BasicAuthenticationFilter {
                                     FilterChain chain) throws IOException, ServletException {
         
     }
+	
+	
+	private UsernamePasswordAuthenticationToken getAuthentication(HttpServletRequest request) {
+        
+    }
 }
