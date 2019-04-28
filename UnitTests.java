@@ -51,5 +51,15 @@ public class UserDetailsTest {
         /*Assert*/
         assertFalse("Invalid ID passed ", result);
     }
+
+    @Test
+    public void testValidID() throws Exception {
+        /*Arrange*/
+       UserDetails user=new UserDetails();
+        /*Act*/
+        boolean result= user.isValidID("[0-9]*");
+        /*Assert*/
+        assertFalse("Valid ID passed ", result);
+    }
     
 }
