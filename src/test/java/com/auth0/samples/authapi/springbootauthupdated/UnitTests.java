@@ -1,4 +1,4 @@
-package guru.springframework.unittest.asserts;
+package com.auth0.samples.authapi.springbootauthupdated;
 import org.junit.Test;
 import java.util.Map;
 import static org.junit.Assert.*;
