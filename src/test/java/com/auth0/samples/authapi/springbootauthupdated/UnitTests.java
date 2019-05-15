@@ -26,12 +26,13 @@ public class UnitTests {
     }
     @Test
     public void testInvalidPassword() throws Exception {
-        /*Arrange*/
+
        UserDetails user=new UserDetails();
-        /*Act*/
-        //boolean result= user.isValidPassword("[A-Za-z0-9]*{8,}");
-        /*Assert*/
-        //assertFalse("Invalid Password passed ", result);
+       user.setPassword("NekoNekic123");
+       String pass="Nekic";
+
+       assertThat(pass.equals(user.getPassword())).isFalse();
+
     }
      @Test
     public void testValidPassword() throws Exception {

@@ -46,7 +46,7 @@ public class BasicAuthenticationIntegrationTests {
                 .andExpect(status().isUnauthorized());
     }
 
-<<<<<<< HEAD
+//<<<<<<< HEAD
     /*@Test
     public void loginUser() throws Exception {
         this.mockMvc.perform(get("/").with(httpBasic("user", "password")))
@@ -61,7 +61,7 @@ public class BasicAuthenticationIntegrationTests {
                 .andReturn();
         assertTrue(result.getResponse().getContentAsString().contains("HTTP Status 401"));
     }*/
-=======
+//=======
 
 
 
@@ -78,7 +78,7 @@ public class BasicAuthenticationIntegrationTests {
                 .content(body))
                 .andExpect(status().isForbidden()).andReturn();
     }
->>>>>>> b0221f3e17b74f109115724ba251ec21b2892f44
+//>>>>>>> b0221f3e17b74f109115724ba251ec21b2892f44
 
 
 
