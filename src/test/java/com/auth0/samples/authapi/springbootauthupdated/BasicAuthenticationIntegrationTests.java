@@ -10,10 +10,10 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.MvcResult;
 
 import static org.junit.Assert.assertTrue;
-import static org.springframework.security.test.web.servlet.request.SecurityMockMvcRequestBuilders.formLogin;
+/*import static org.springframework.security.test.web.servlet.request.SecurityMockMvcRequestBuilders.formLogin;
 import static org.springframework.security.test.web.servlet.request.SecurityMockMvcRequestPostProcessors.httpBasic;
 import static org.springframework.security.test.web.servlet.response.SecurityMockMvcResultMatchers.authenticated;
-import static org.springframework.security.test.web.servlet.response.SecurityMockMvcResultMatchers.unauthenticated;
+import static org.springframework.security.test.web.servlet.response.SecurityMockMvcResultMatchers.unauthenticated;*/
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
@@ -31,7 +31,7 @@ public class BasicAuthenticationIntegrationTests {
                 .andExpect(status().isUnauthorized());
     }
 
-    @Test
+    /*@Test
     public void loginUser() throws Exception {
         this.mockMvc.perform(get("/").with(httpBasic("user", "password")))
                 .andExpect(authenticated());
@@ -44,6 +44,6 @@ public class BasicAuthenticationIntegrationTests {
                 .andExpect(status().is4xxClientError())
                 .andReturn();
         assertTrue(result.getResponse().getContentAsString().contains("HTTP Status 401"));
-    }
+    }*/
 
 }
