@@ -5,18 +5,17 @@ import org.junit.Test;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
 
-public class UnitTests {
+public class UserDetailsTests {
     @Test
-    public void testValidUsername() throws Exception {
-        /*Arrange*/
+    public void testValidUsername() {
         UserDetails user=new UserDetails();
-        /*Ac*/
-        //boolean result = user.isValidUsername("[A-Za-z0-9]*");
-        /*Assert*/
-        //assertTrue("Valid username ID failed ", result );
+        user.setUsername("Merima");
+        String name="Merima";
+
+        assertThat(name.equals(user.getUsername())).isTrue();
     }
     @Test
-    public void testInvalidUsername() throws Exception {
+    public void testInvalidUsername() {
 
         UserDetails user=new UserDetails();
         user.setUsername("Neko");
@@ -25,7 +24,7 @@ public class UnitTests {
         assertThat(name.equals(user.getUsername())).isFalse();
     }
     @Test
-    public void testInvalidPassword() throws Exception {
+    public void testInvalidPassword() {
 
        UserDetails user=new UserDetails();
        user.setPassword("NekoNekic123");
@@ -35,7 +34,7 @@ public class UnitTests {
 
     }
      @Test
-    public void testValidPassword() throws Exception {
+    public void testValidPassword() {
 
         UserDetails user=new UserDetails();
         user.setPassword("user123");
