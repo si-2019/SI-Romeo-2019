@@ -1,7 +1,6 @@
 package com.auth0.samples.authapi.springbootauthupdated.security;
 
 import com.auth0.jwt.JWT;
-import com.auth0.samples.authapi.springbootauthupdated.User.UserDetails;
 import com.auth0.samples.authapi.springbootauthupdated.models.Korisnik;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.json.JSONException;
@@ -26,7 +25,6 @@ import java.util.Date;
 
 import static com.auth0.jwt.algorithms.Algorithm.HMAC512;
 import static com.auth0.samples.authapi.springbootauthupdated.security.SecurityConstants.EXPIRATION_TIME;
-import static com.auth0.samples.authapi.springbootauthupdated.security.SecurityConstants.HEADER_STRING;
 import static com.auth0.samples.authapi.springbootauthupdated.security.SecurityConstants.SECRET;
 import static com.auth0.samples.authapi.springbootauthupdated.security.SecurityConstants.TOKEN_PREFIX;
 
