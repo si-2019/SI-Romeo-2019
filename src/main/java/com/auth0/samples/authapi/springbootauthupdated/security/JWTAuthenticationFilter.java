@@ -36,7 +36,7 @@ public class JWTAuthenticationFilter extends UsernamePasswordAuthenticationFilte
                                                 HttpServletResponse res) throws AuthenticationException {
         try {
             UserDetails creds = new ObjectMapper()
-                    .readValue(req.getInputStream(), UserDetails.class);
+                    .readValue(req.getInputStream(), UserDetails.class);   //todo: use user class from database
 
             return authenticationManager.authenticate(
                     new UsernamePasswordAuthenticationToken(
@@ -59,6 +59,8 @@ public class JWTAuthenticationFilter extends UsernamePasswordAuthenticationFilte
                 .withSubject(((User) auth.getPrincipal()).getUsername())
                 .withExpiresAt(new Date(System.currentTimeMillis() + EXPIRATION_TIME))
                 .sign(HMAC512(SECRET.getBytes()));
-        res.addHeader(HEADER_STRING, TOKEN_PREFIX + token);
+        //res.addHeader(HEADER_STRING, TOKEN_PREFIX + token);
+
+        //todo: create new result (look from my previous github project!)
     }
 }
