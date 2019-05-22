@@ -9,6 +9,7 @@ import com.auth0.samples.authapi.springbootauthupdated.models.*;
 
 //import com.auth0.samples.authapi.springbootauthupdated.repositories.*;
 
+import com.auth0.samples.authapi.springbootauthupdated.repositories.UsersRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.http.HttpStatus;
@@ -34,13 +35,13 @@ public class UserController {
 
 
 
-    public UserController(UsersRepository usersRepository,
+    public UserController(UsersRepository usersRepository
 
-                          BCryptPasswordEncoder bCryptPasswordEncoder) {
+                          /*, BCryptPasswordEncoder bCryptPasswordEncoder*/) {
 
         this.usersRepository = usersRepository;
 
-        this.bCryptPasswordEncoder = bCryptPasswordEncoder;
+        //this.bCryptPasswordEncoder = bCryptPasswordEncoder;
 
     }
 
@@ -49,7 +50,7 @@ public class UserController {
 
     public ResponseEntity getId(@RequestParam String username){
 
-        return new ResponseEntity(usersRepository.findByEmail(username), HttpStatus.OK);
+        return new ResponseEntity(usersRepository.findByUsername(username), HttpStatus.OK);
 
     }
 
