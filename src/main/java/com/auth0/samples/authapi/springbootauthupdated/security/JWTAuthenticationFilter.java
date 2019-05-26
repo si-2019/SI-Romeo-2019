@@ -3,9 +3,7 @@ package com.auth0.samples.authapi.springbootauthupdated.security;
 import com.auth0.jwt.JWT;
 import com.auth0.samples.authapi.springbootauthupdated.models.Korisnik;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import net.minidev.json.JSONObject;
-import org.json.JSONException;
-//import org.json.JSONObject;
+import json.JSONObject;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -128,7 +126,7 @@ public class JWTAuthenticationFilter extends UsernamePasswordAuthenticationFilte
             result.put("tokenExpiresAt", date);
 
 
-        
+
             result.put("token", TOKEN_PREFIX + token);
 
 
