@@ -1,14 +1,15 @@
 package com.auth0.samples.authapi.springbootauthupdated;
 import com.auth0.samples.authapi.springbootauthupdated.User.UserDetailsServiceImpl;
+import com.auth0.samples.authapi.springbootauthupdated.models.Korisnik;
 import org.junit.Test;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
 
-public class UserDetailsTests {
+public class KorisnikTests {
     @Test
     public void testValidUsername() {
-        UserDetailsServiceImpl user=new UserDetailsServiceImpl();
+        Korisnik user=new Korisnik();
         user.setUsername("Merima");
         String name="Merima";
 
@@ -17,7 +18,7 @@ public class UserDetailsTests {
     @Test
     public void testInvalidUsername() {
 
-        UserDetailsServiceImpl user=new UserDetailsServiceImpl();
+        Korisnik user=new Korisnik();
         user.setUsername("Neko");
         String name="Nekic";
 
@@ -26,7 +27,7 @@ public class UserDetailsTests {
     @Test
     public void testInvalidPassword() {
 
-       UserDetailsServiceImpl user=new UserDetailsServiceImpl();
+       Korisnik user=new Korisnik();
        user.setPassword("NekoNekic123");
        String pass="Nekic";
 
@@ -36,7 +37,7 @@ public class UserDetailsTests {
      @Test
     public void testValidPassword() {
 
-        UserDetailsServiceImpl user=new UserDetailsServiceImpl();
+        Korisnik user=new Korisnik();
         user.setPassword("user123");
         String password= "user123";
 
