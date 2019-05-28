@@ -1,9 +1,14 @@
 package com.auth0.samples.authapi.springbootauthupdated.models;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
 
+@Entity
 public class Korisnik {
 
+  @Id
   private Long id;
+
   private long idOdsjek;
   private long idUloga;
   private String ime;
