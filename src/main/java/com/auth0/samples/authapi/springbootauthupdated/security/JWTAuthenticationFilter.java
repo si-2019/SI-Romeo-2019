@@ -3,7 +3,7 @@ package com.auth0.samples.authapi.springbootauthupdated.security;
 import com.auth0.jwt.JWT;
 import com.auth0.samples.authapi.springbootauthupdated.models.Korisnik;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import json.JSONObject;
+import net.minidev.json.JSONObject;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
