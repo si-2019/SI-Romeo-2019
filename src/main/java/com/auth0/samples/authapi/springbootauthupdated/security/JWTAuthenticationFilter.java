@@ -36,8 +36,6 @@ import static com.auth0.samples.authapi.springbootauthupdated.security.SecurityC
 
 public class JWTAuthenticationFilter extends UsernamePasswordAuthenticationFilter {
 
-    @Autowired
-    private UsersRepository usersRepository;
 
     private AuthenticationManager authenticationManager;
 
@@ -101,7 +99,7 @@ public class JWTAuthenticationFilter extends UsernamePasswordAuthenticationFilte
 
         String username = ((User) auth.getPrincipal()).getUsername();
 
-        Long id = usersRepository.findByUsername(username).getId();
+        //Long id = usersRepository.findByUsername(username).getId();
 
         String token = JWT.create()
 
@@ -125,7 +123,7 @@ public class JWTAuthenticationFilter extends UsernamePasswordAuthenticationFilte
 
         JSONObject result = new JSONObject();
 
-            result.put("id", id);
+            //result.put("id", id);
 
 
 
