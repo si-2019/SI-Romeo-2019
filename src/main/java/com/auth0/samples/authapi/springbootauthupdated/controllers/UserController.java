@@ -18,6 +18,7 @@ import org.springframework.http.ResponseEntity;
 
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -27,26 +28,24 @@ import org.springframework.web.bind.annotation.*;
 public class UserController {
 
 
-    @Autowired
-
     private UsersRepository usersRepository;
 
-    private BCryptPasswordEncoder bCryptPasswordEncoder;
+    private PasswordEncoder noOpPasswordEncoder;
 
 
 
     public UserController(UsersRepository usersRepository
 
-                          /*, BCryptPasswordEncoder bCryptPasswordEncoder*/) {
+                          , PasswordEncoder noOpPasswordEncoder) {
 
         this.usersRepository = usersRepository;
 
-        //this.bCryptPasswordEncoder = bCryptPasswordEncoder;
+        this.noOpPasswordEncoder = noOpPasswordEncoder;
 
     }
 
 
-    @GetMapping("/id")
+    /*@GetMapping("/id")
 
     public ResponseEntity getId(@RequestParam String username){
 
@@ -56,7 +55,7 @@ public class UserController {
 
 
 
-    @GetMapping("/all")
+    /*@GetMapping("/all")
 
     public ResponseEntity getUsers(){
 

@@ -7,16 +7,21 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.config.http.SessionCreationPolicy;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 
+import static com.auth0.samples.authapi.springbootauthupdated.security.SecurityConstants.LOGIN_URL;
+
 @EnableWebSecurity
 public class WebSecurity extends WebSecurityConfigurerAdapter {
     private UserDetailsServiceImpl userDetailsService;
+    private PasswordEncoder noOpPasswordEncoder;
 
-    public WebSecurity(UserDetailsServiceImpl userDetailsService) {
+    public WebSecurity(UserDetailsServiceImpl userDetailsService, PasswordEncoder noOpPasswordEncoder) {
         this.userDetailsService = userDetailsService;
+        this.noOpPasswordEncoder = noOpPasswordEncoder;
     }
 
     @Override
@@ -31,10 +36,10 @@ public class WebSecurity extends WebSecurityConfigurerAdapter {
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
     }
 
-    /*@Override
+    @Override
     public void configure(AuthenticationManagerBuilder auth) throws Exception {
-        auth.userDetailsService(userDetailsService).passwordEncoder(bCryptPasswordEncoder);
-    }*/
+        auth.userDetailsService(userDetailsService).passwordEncoder(noOpPasswordEncoder);
+    }
 
     @Bean
     CorsConfigurationSource corsConfigurationSource() {

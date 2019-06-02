@@ -2,14 +2,19 @@ package com.auth0.samples.authapi.springbootauthupdated.security;
 
 import com.auth0.jwt.JWT;
 import com.auth0.samples.authapi.springbootauthupdated.models.Korisnik;
+import com.auth0.samples.authapi.springbootauthupdated.repositories.UsersRepository;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import net.minidev.json.JSONObject;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+import org.springframework.stereotype.Component;
 
 import javax.servlet.FilterChain;
 import javax.servlet.ServletException;
@@ -28,9 +33,11 @@ import static com.auth0.samples.authapi.springbootauthupdated.security.SecurityC
 import static com.auth0.samples.authapi.springbootauthupdated.security.SecurityConstants.TOKEN_PREFIX;
 
 
+
 public class JWTAuthenticationFilter extends UsernamePasswordAuthenticationFilter {
 
-
+    @Autowired
+    private UsersRepository usersRepository;
 
     private AuthenticationManager authenticationManager;
 
@@ -94,7 +101,7 @@ public class JWTAuthenticationFilter extends UsernamePasswordAuthenticationFilte
 
         String username = ((User) auth.getPrincipal()).getUsername();
 
-
+        Long id = usersRepository.findByUsername(username).getId();
 
         String token = JWT.create()
 
@@ -117,6 +124,9 @@ public class JWTAuthenticationFilter extends UsernamePasswordAuthenticationFilte
 
 
         JSONObject result = new JSONObject();
+
+            result.put("id", id);
+
 
 
             result.put("user", username);
