@@ -52,4 +52,71 @@ public class UserController {
         return new ResponseEntity(HttpStatus.OK);
 
     }
+
+    /*@GetMapping("/id")
+
+    public ResponseEntity getId(@RequestParam String username){
+
+        return new ResponseEntity(usersRepository.findByUsername(username), HttpStatus.OK);
+
+    }
+
+
+
+    /*@GetMapping("/all")
+
+    public ResponseEntity getUsers(){
+
+        return new ResponseEntity(usersRepository.findAll(), HttpStatus.OK);
+
+    }
+
+
+
+    /*@PostMapping("/register")
+
+    public ResponseEntity register(@RequestBody UserDTO userDTO) {
+
+
+
+        Users existingUser = usersRepository.findByEmail(userDTO.getEmail());
+
+        if(existingUser!=null){
+
+            return new ResponseEntity(HttpStatus.BAD_REQUEST);
+
+        }
+
+        else {
+
+            Users user = new Users();
+
+            user.setName(userDTO.getName());
+
+            user.setLastName(userDTO.getLastName());
+
+            user.setEmail(userDTO.getEmail());
+
+            user.setPhoneNumber(userDTO.getPhoneNumber());
+
+            user.setPassword(bCryptPasswordEncoder.encode(userDTO.getPassword()));
+
+
+
+            System.out.println(userDTO.getCity() + userDTO.getCountry());
+
+            City city = cityDao.getCity(userDTO.getCity(), userDTO.getCountry());
+
+            user.setCity(city);
+
+            user.setCountry(city.getCountry());
+
+            userDao.save(user);
+
+            return new ResponseEntity(user, HttpStatus.OK);
+
+        }
+
+    }
+*/
 }
