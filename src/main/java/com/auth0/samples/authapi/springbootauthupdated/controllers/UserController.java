@@ -55,6 +55,11 @@ public class UserController {
     }
 
 
+    @GetMapping("/validate")
 
+    public ResponseEntity validate(){
 
+        return new ResponseEntity(HttpStatus.OK);
+
+    }
 }
