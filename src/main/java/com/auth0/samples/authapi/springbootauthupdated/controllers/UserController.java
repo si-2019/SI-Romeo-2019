@@ -45,14 +45,6 @@ public class UserController {
     }
 
 
-    @GetMapping("/validate")
-
-    public ResponseEntity validate(){
-
-        return new ResponseEntity(HttpStatus.OK);
-
-    }
-
     /*@GetMapping("/id")
 
     public ResponseEntity getId(@RequestParam String username){
@@ -119,4 +111,12 @@ public class UserController {
 
     }
 */
+
+    @GetMapping("/validate")
+
+    public ResponseEntity validate(){
+
+        return new ResponseEntity(HttpStatus.OK);
+
+    }
 }
