@@ -19,10 +19,12 @@ import static com.auth0.samples.authapi.springbootauthupdated.security.SecurityC
 public class WebSecurity extends WebSecurityConfigurerAdapter {
     private UserDetailsServiceImpl userDetailsService;
     private PasswordEncoder noOpPasswordEncoder;
+    private PasswordEncoder md5Encoder;
 
-    public WebSecurity(UserDetailsServiceImpl userDetailsService, PasswordEncoder noOpPasswordEncoder) {
+    public WebSecurity(UserDetailsServiceImpl userDetailsService, PasswordEncoder noOpPasswordEncoder, PasswordEncoder md5Encoder) {
         this.userDetailsService = userDetailsService;
         this.noOpPasswordEncoder = noOpPasswordEncoder;
+        this.md5Encoder = md5Encoder;
     }
 
     @Override
@@ -39,7 +41,7 @@ public class WebSecurity extends WebSecurityConfigurerAdapter {
 
     @Override
     public void configure(AuthenticationManagerBuilder auth) throws Exception {
-        auth.userDetailsService(userDetailsService).passwordEncoder(noOpPasswordEncoder);
+        auth.userDetailsService(userDetailsService).passwordEncoder(md5Encoder);
     }
 
     @Bean

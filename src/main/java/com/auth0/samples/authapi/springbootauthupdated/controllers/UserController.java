@@ -32,16 +32,19 @@ public class UserController {
 
     private PasswordEncoder noOpPasswordEncoder;
 
+    private PasswordEncoder md5Encoder;
+
 
 
     public UserController(UsersRepository usersRepository
 
-                          , PasswordEncoder noOpPasswordEncoder) {
+                          ,PasswordEncoder noOpPasswordEncoder, PasswordEncoder md5Encoder) {
 
         this.usersRepository = usersRepository;
 
         this.noOpPasswordEncoder = noOpPasswordEncoder;
 
+        this.md5Encoder = md5Encoder;
     }
 
 
@@ -49,7 +52,8 @@ public class UserController {
 
     public ResponseEntity getId(@RequestParam String username){
 
-        Long id=usersRepository.findByUsername(username).getId();
+        Korisnik korisnik=usersRepository.findByUsername(username);
+        Long id = korisnik.getId();
         return new ResponseEntity(id, HttpStatus.OK);
 
     }
