@@ -22,7 +22,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-
+@CrossOrigin(origins = "https://si2019frontend.herokuapp.com")
 @RequestMapping("/users")
 
 public class UserController {
@@ -49,7 +49,7 @@ public class UserController {
 
 
     @GetMapping("/id")
-    
+
     public ResponseEntity getId(@RequestParam String username){
 
         Korisnik korisnik=usersRepository.findByUsername(username);
