@@ -49,7 +49,7 @@ public class UserController {
 
 
     @GetMapping("/id")
-
+    @CrossOrigin
     public ResponseEntity getId(@RequestParam String username){
 
         Korisnik korisnik=usersRepository.findByUsername(username);
@@ -60,7 +60,7 @@ public class UserController {
 
 
     @GetMapping("/validate")
-
+    @CrossOrigin
     public ResponseEntity validate(){
 
         return new ResponseEntity(HttpStatus.OK);
